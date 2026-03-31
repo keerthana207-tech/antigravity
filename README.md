@@ -1,5 +1,15 @@
-# CropOS (AgriVision Platform)
+# CropOS 🌾 - AI-Powered Farm Operating System
 
+![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
+![Flask](https://img.shields.io/badge/Flask-2.0+-green.svg)
+![Google AI](https://img.shields.io/badge/Google-Gemini%201.5%20Pro-red.svg)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+
+> **Your farm's digital twin, powered by Google Gemini AI**
+
+**An intelligent agricultural platform that transforms raw sensor data into actionable farming decisions through multi-agent AI orchestration.**
+
+---
 ## Problem Statement
 Modern farming lacks a unified, intelligent platform to coordinate data across various domains (weather, soil health, market prices, crop phenology). Farmers often have to manually parse disjointed sources of information, leading to suboptimal decisions, delayed interventions, and yield loss. There is an urgent need for an accessible, integrated operating system that not only consolidates this data but actively synthesizes it into actionable, hyper-local insights for farm management.
 
