@@ -28,15 +28,39 @@
 Modern farming lacks a unified, intelligent platform to coordinate data across various domains (weather, soil health, market prices, crop phenology). Farmers often have to manually parse disjointed sources of information, leading to suboptimal decisions, delayed interventions, and yield loss. There is an urgent need for an accessible, integrated operating system that not only consolidates this data but actively synthesizes it into actionable, hyper-local insights for farm management.
 
 ## Project Description
-CropOS is a comprehensive farm-level operating system that acts as a digital twin of your farm. Built with a Flask (Python) backend and a highly interactive, modern frontend, the platform offers a robust, multi-faceted dashboard. Key features include:
 
-- **Digital Twin & Analytics:** Visual, 3D-like representation of farm sections with real-time sensor analytics (soil moisture, pH, health index) and predictive AI-driven phenology tracking.
-- **Agent Orchestra:** A Multi-Agent AI hub utilizing swarm intelligence. Specialized agents (WeatherWise, MarketMind, SoilSense) analyze individual domains and reach a transparent consensus to answer complex farmer queries accurately.
-- **Kerala Hub (Govt Scheme Navigator):** An intelligent matching tool leveraging Retrieval-Augmented Generation (RAG) to connect farmers with applicable Indian/Kerala government subsidies based on their specific crop and land profile.
-- **Farm Passport:** Immutable ledger features utilizing Web3 technology for logging farm activities, creating an auditable and traceable history (Carbon offsets, organic scoring).
+## ✨ Key Features
+
+### 🌍 Digital Twin & Analytics
+Visual, 3D-like representation of farm sections with real-time sensor analytics (soil moisture, pH, health index) and predictive AI-driven phenology tracking.
+
+- **Real-time Monitoring**: 12+ sensors tracking soil moisture, pH levels, and crop health
+- **3D Farm Visualization**: Interactive map showing different farm sections
+- **Predictive Phenology**: AI-driven predictions for crop growth stages
+
+### 🤖 Agent Orchestra (Multi-Agent AI Hub)
+A Multi-Agent AI hub utilizing swarm intelligence. Specialized agents (WeatherWise, MarketMind, SoilSense) analyze individual domains and reach a transparent consensus to answer complex farmer queries accurately.
+
+- **WeatherWise Agent**: Analyzes weather patterns and rainfall predictions
+- **MarketMind Agent**: Tracks market prices and supply chain dynamics
+- **SoilSense Agent**: Monitors soil conditions and moisture levels
+- **Consensus Decision Making**: Transparent reasoning with confidence scores
+
+### 🎯 Kerala Hub (Govt Scheme Navigator)
+An intelligent matching tool leveraging Retrieval-Augmented Generation (RAG) to connect farmers with applicable Indian/Kerala government subsidies based on their specific crop and land profile.
+
+- **RAG-Powered Matching**: Semantic search through 47+ government schemes
+- **Personalized Recommendations**: Based on crop type, acreage, and location
+- **Automatic Eligibility Check**: Instant scheme applicability assessment
+
+### 🔒 Farm Passport (Web3 Integration)
+Immutable ledger features utilizing Web3 technology for logging farm activities, creating an auditable and traceable history.
+
+- **Activity Logging**: Permanent record of all farm operations
+- **Carbon Offset Tracking**: Monitor and verify carbon credits
+- **Organic Certification Support**: Transparent history for certification processes
 
 ---
-
 ## Google AI Usage
 ### Tools / Models Used
 - Google Gemini 1.5 Pro (Model)
