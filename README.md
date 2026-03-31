@@ -62,16 +62,74 @@ Immutable ledger features utilizing Web3 technology for logging farm activities,
 
 ---
 ## Google AI Usage
-### Tools / Models Used
-- Google Gemini 1.5 Pro (Model)
-- Google Gemini Embeddings
-- Google AI Studio API
+## 🤖 Google AI Integration
 
-### How Google AI Was Used
-Google AI is seamlessly integrated into the core intelligence layers of CropOS:
-1. **Agent Orchestra (Multi-Agent Swarm):** We utilize Gemini to power specialized agents that process concurrent inputs and synthesize a consensus decision. The model handles the complex reasoning required to balance variables like impending rain, current soil moisture, and market price fluctuations, delivering a unified final decision to the farmer.
-2. **Govt Scheme Navigator:** Gemini models power our Retrieval-Augmented Generation (RAG) agent, ingesting a vector database of 47+ agricultural schemes and intelligently matching them to the specific attributes (acreage, crop type, location) of the user's profile.
-3. **Predictive Insights & Monsoon AI:** Generating human-readable, context-aware alerts (e.g., delaying pesticide spray due to rain) natively parsed by Gemini based on structured weather data.
+### Models & Tools Used
+
+- **Google Gemini 1.5 Pro** - Core reasoning and multi-agent orchestration
+- **Google Gemini Embeddings** - Vector search for scheme matching
+- **Google AI Studio API** - Production deployment and API access
+
+---
+
+### How Google AI Powers CropOS
+
+#### 1️⃣ **Multi-Agent Orchestration** 🧠
+
+**Model:** Gemini 1.5 Pro  
+**Purpose:** Powers specialized AI agents that work together to make farming decisions
+
+**Implementation:**
+```python
+# Example: Agent Orchestra Decision Making
+farmer_question = "Should I harvest my ginger next week?"
+
+# Gemini processes multiple agent inputs:
+# - WeatherWise: 85% rain probability detected
+# - MarketMind: Price dip to ₹49/kg, recovery expected in 10 days
+# - SoilSense: 65% soil moisture (high risk during rain)
+
+# Consensus reached with 98% confidence:
+decision = "WAIT 10 DAYS"
+```
+
+**Real-world Impact:** Prevents harvest during unsuitable conditions, optimizing both crop quality and market returns.
+
+---
+
+#### 2️⃣ **RAG-Powered Scheme Navigator** 📋
+
+**Model:** Gemini 1.5 Pro + Google Embeddings  
+**Purpose:** Intelligent matching of government schemes to farmer profiles
+
+**Implementation:**
+- Vector database of 47+ agricultural schemes (Kerala & Indian govt)
+- Semantic search using Google Embeddings for accurate matching
+- Gemini generates natural language explanations of eligibility
+
+**Real-world Impact:** Farmers discover applicable subsidies automatically instead of manual research through hundreds of pages of documents.
+
+---
+
+#### 3️⃣ **Predictive Analytics & Context-Aware Alerts** 🌧️
+
+**Model:** Gemini 1.5 Pro  
+**Purpose:** Generate actionable, human-readable farming recommendations
+
+**Example Output:**
+- "Delay pesticide application by 3 days due to incoming rain"
+- "Optimal harvesting window: March 15-18 based on weather and market conditions"
+- "Soil moisture at 65% - consider drainage before next irrigation"
+
+**Real-world Impact:** Converts complex multi-source data into simple, actionable guidance for farmers.
+
+---
+
+### Proof of Google AI Usage
+
+📁 **API Integration Screenshots:** `/proof` directory  
+📊 **Live Agent Responses:** See screenshots section below  
+🔑 **API Key Configuration:** `backend/.env` file
 
 ---
 
