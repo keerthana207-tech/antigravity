@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CropOS | Operating System for Modern Farming</title>
+    
+    <!-- SEO Optimization -->
+    <meta name="description" content="CropOS is India's first farm-level operating system providing a digital twin of your farm, predictive simulations, and multi-agent AI orchestration.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    
+    <!-- Decorative Background Elements -->
+    <div class="glow-orb top-left"></div>
+    <div class="glow-orb bottom-right"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- Auth Overlay -->
+    <div id="auth-overlay" class="auth-wrapper">
+        <div class="auth-card glass-panel">
+            <div class="auth-header text-center">
+                <i class="fa-solid fa-seedling logo-icon text-3xl mb-2"></i>
+                <h2 class="text-2xl font-heading font-bold">Crop<span class="text-accent">OS</span></h2>
+                <p class="text-muted text-sm auth-subtitle">Please login to access your farm digital twin.</p>
+            </div>
+            
+            <div class="auth-form" id="login-form">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="auth-username" placeholder="Enter username" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="auth-password" placeholder="Enter password" class="form-control">
+                </div>
+                <div id="auth-error" class="text-red-400 text-sm hidden mb-3">Invalid credentials</div>
+                <button id="btn-login" class="btn btn-primary w-full glow mb-3">Log In</button>
+                <button id="btn-register" class="btn btn-outline w-full glow mt-2">Create New Account</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="app-layout" id="main-app" style="display: none;">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fa-solid fa-seedling logo-icon"></i>
+                    <h1 class="logo-text">Crop<span class="text-accent">OS</span></h1>
+                </div>
+                <div class="farm-selector">
+                    <span>Wayanad Pepper Farm</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li>
+                        <a href="#digital-twin" class="nav-item active" data-target="digital-twin">
+                            <i class="fa-solid fa-cube"></i>
+                            <span>Digital Twin</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#agent-orchestra" class="nav-item" data-target="agent-orchestra">
+                            <i class="fa-solid fa-microchip"></i>
+                            <span>Agent Orchestra</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#farm-passport" class="nav-item" data-target="farm-passport">
+                            <i class="fa-solid fa-link"></i>
+                            <span>Farm Passport</span>
+                            <span class="badge">Web3</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#kerala-innovations" class="nav-item" data-target="kerala-innovations">
+                            <i class="fa-solid fa-umbrella"></i>
+                            <span>Kerala Hub</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sensor-status">
+                    <div class="status-indicator online"></div>
+                    <span>12 Sensors Online</span>
+                </div>
+                <div class="user-profile">
+                    <img src="https://ui-avatars.com/api/?name=Ravi+Kumar&background=34D399&color=fff" alt="Ravi Kumar" class="avatar">
+                    <div class="user-info">
+                        <span class="user-name">Ravi K.</span>
+                        <span class="user-role">Owner</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Navigation / Status Bar -->
+            <header class="topbar">
+                <div class="breadcrumbs">
+                    <span id="current-page-title">Digital Twin Dashboard</span>
+                </div>
+                <div class="topbar-actions">
+                    <div class="weather-widget">
+                        <i class="fa-solid fa-cloud-sun-rain"></i>
+                        <span>28°C / 78% RH</span>
+                    </div>
+                    <button class="icon-btn notif-btn">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="notif-badge">3</span>
+                    </button>
+                    <div style="display: flex; align-items: stretch;">
+                        <input type="text" placeholder="Enter new action..." style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.5rem 0 0 0.5rem; padding: 0.5rem 1rem; color: white; outline: none; width: 150px; font-size: 0.875rem;">
+                        <button class="btn btn-primary" style="border-radius: 0 0.5rem 0.5rem 0;">
+                            <i class="fa-solid fa-plus"></i> Add
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Views Container -->
+            <div class="views-container">
+                
+                <!-- View: Digital Twin (Overview) -->
+                <section id="digital-twin" class="view-section active">
+                    <div class="dashboard-grid">
+                        
+                        <!-- 3D Map / Farm View Representation -->
+                        <div class="card col-span-2 row-span-2 glass-panel">
+                            <div class="card-header">
+                                <h2>Farm Activity Map</h2>
+                                <div class="card-actions">
+                                    <button class="btn btn-sm btn-ghost"><i class="fa-solid fa-expand"></i></button>
+                                </div>
+                            </div>
+                            <div class="card-body farm-visualizer">
+                                <div class="farm-map-placeholder">
+                                    <!-- Embedded pseudo 3d map structure -->
+                                    <div class="map-grid">
+                                        <div class="plot plot-healthy" data-tooltip="Section A1: Pepper - Health 98%"></div>
+                                        <div class="plot plot-warning" data-tooltip="Section A2: Pepper - Low Moisture"></div>
+                                        <div class="plot plot-healthy" data-tooltip="Section B1: Ginger - Health 92%"></div>
+                                        <div class="plot plot-critical" data-tooltip="Section B2: Ginger - Pest Risk detected"></div>
+                                    </div>
+                                    <div class="map-overlay-pulse"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Soil & Weather Metrics -->
+                        <div class="card glass-panel">
+                            <div class="card-header">
+                                <h2>Sensor Analytics</h2>
+                            </div>
+                            <div class="card-body metrics-grid">
+                                <div class="metric-item">
+                                    <div class="metric-icon bg-blue-500/10 text-blue-400">
+                                        <i class="fa-solid fa-droplet"></i>
+                                    </div>
+                                    <div class="metric-data">
+                                        <span class="metric-value">65%</span>
+                                        <span class="metric-label">Soil Moisture</span>
+                                    </div>
+                                </div>
+                                <div class="metric-item">
+                                    <div class="metric-icon bg-purple-500/10 text-purple-400">
+                                        <i class="fa-solid fa-flask"></i>
+                                    </div>
+                                    <div class="metric-data">
+                                        <span class="metric-value">6.2</span>
+                                        <span class="metric-label">Soil pH</span>
+                                    </div>
+                                </div>
+                                <div class="metric-item">
+                                    <div class="metric-icon bg-green-500/10 text-green-400">
+                                        <i class="fa-solid fa-leaf"></i>
+                                    </div>
+                                    <div class="metric-data">
+                                        <span class="metric-value">0.87</span>
+                                        <span class="metric-label">Health Index</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Predictive Phenology -->
+                        <div class="card glass-panel">
+                            <div class="card-header">
+                                <h2>Phenology Prediction</h2>
+                                <span class="badge badge-ai">AI Predicted</span>
+                            </div>
+                            <div class="card-body timeline-wrapper">
+                                <ul class="timeline">
+                                    <li class="timeline-item completed">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <h4>First Leaves</h4>
+                                            <p>Day 45 • Expected</p>
+                                        </div>
+                                    </li>
+                                    <li class="timeline-item active">
+                                        <div class="timeline-marker pulse"></div>
+                                        <div class="timeline-content">
+                                            <h4>Flowering Phase</h4>
+                                            <p>Day 120 • T-Minus 5 Days</p>
+                                            <div class="suggestion-box">
+                                                <i class="fa-solid fa-lightbulb text-yellow-400"></i>
+                                                <span>Prepare boron spray</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="timeline-item">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <h4>Fruit Set</h4>
+                                            <p>Day 180 • Unlocked later</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- View: Agent Orchestra -->
+                <section id="agent-orchestra" class="view-section hidden">
+                    <div class="orchestra-container glass-panel">
+                        <div class="chat-header">
+                            <div>
+                                <h2>Multi-Agent AI Hub</h2>
+                                <p>Simulating swarm intelligence across specialized agricultural domains.</p>
+                            </div>
+                            <div class="active-agents">
+                                <span class="agent-avatar doc" title="CropDoc">CD</span>
+                                <span class="agent-avatar weather" title="WeatherWise">WW</span>
+                                <span class="agent-avatar soil" title="SoilSense">SS</span>
+                                <span class="agent-avatar market" title="MarketMind">MM</span>
+                            </div>
+                        </div>
+
+                        <div class="chat-window">
+                            <!-- User Query -->
+                            <div class="chat-message user">
+                                <div class="message-bubble">
+                                    Should I harvest my ginger next week?
+                                </div>
+                                <span class="message-time">Just now</span>
+                            </div>
+
+                            <!-- Agent Processing animation -->
+                            <div class="agent-processing hidden" id="orchestra-processing">
+                                <p><i class="fa-solid fa-network-wired"></i> Orchestrator spawning 4 agents in parallel...</p>
+                                <div class="agent-threads">
+                                    <div class="thread"><span>WeatherWise</span> checking forecast... <i class="fa-solid fa-spinner fa-spin"></i></div>
+                                    <div class="thread"><span>MarketMind</span> checking APMC API... <i class="fa-solid fa-spinner fa-spin"></i></div>
+                                </div>
+                            </div>
+
+                            <!-- Mock responses (Shown sequentially via JS) -->
+                            <div id="orchestra-responses" class="hidden">
+                                <div class="chat-message agent weather">
+                                    <span class="agent-name">WeatherWise (Confidence: 94%)</span>
+                                    <div class="message-bubble">
+                                        High probability (85%) of unseasonal rain next week in Wayanad region due to low depression.
+                                    </div>
+                                </div>
+                                <div class="chat-message agent market">
+                                    <span class="agent-name">MarketMind (Confidence: 81%)</span>
+                                    <div class="message-bubble">
+                                        Prices are currently ₹52/kg but are expected to dip to ₹49/kg briefly before recovering to ₹55/kg in 10 days due to delayed supply chains.
+                                    </div>
+                                </div>
+                                <div class="chat-message agent soil">
+                                    <span class="agent-name">SoilSense (Confidence: 98%)</span>
+                                    <div class="message-bubble">
+                                        Current soil moisture is 65%. High soil moisture risk if harvesting during rain.
+                                    </div>
+                                </div>
+                                
+                                <div class="orchestrator-divider">
+                                    <span>Consensus reached</span>
+                                </div>
+
+                                <div class="chat-message orchestrator-final">
+                                    <div class="message-bubble final-decision">
+                                        <h4><i class="fa-solid fa-bolt"></i> Final Decision: WAIT 10 DAYS</h4>
+                                        <p><strong>Rationale:</strong></p>
+                                        <ul>
+                                            <li>Pending rain makes harvesting difficult and risks rot.</li>
+                                            <li>Market prices will recover optimally in 10-12 days.</li>
+                                            <li>Crop maturity can sustain the delay without yield loss.</li>
+                                        </ul>
+                                        <div class="action-buttons">
+                                            <button class="btn btn-sm btn-outline"><i class="fa-regular fa-calendar-check"></i> Schedule Harvest on 15th</button>
+                                            <button class="btn btn-sm btn-ghost">View detailed sim</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chat-input-area">
+                            <input type="text" id="demo-query" placeholder="Ask your farm anything...">
+                            <button id="run-orchestra-btn" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Initialize Agents</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- View: Farm Passport -->
+                <section id="farm-passport" class="view-section hidden">
+                    <div class="passport-grid">
+                        <!-- Smart Contract Data -->
+                        <div class="card glass-panel col-span-1">
+                            <div class="card-header">
+                                <h2>Farm Passport NFT</h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="qr-code-wrapper">
+                                    <div class="mock-qr">
+                                        <i class="fa-solid fa-qrcode text-6xl"></i>
+                                    </div>
+                                    <p class="text-xs text-muted mt-2 text-center">Scan for consumer portal</p>
+                                </div>
+                                
+                                <div class="contract-info mt-6">
+                                    <div class="info-row">
+                                        <span>Farm ID</span>
+                                        <span class="mono">0x7F...3B91</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span>Organic Score</span>
+                                        <div class="progress-bar-container">
+                                            <div class="progress-bar" style="width: 95%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="info-row">
+                                        <span>Status</span>
+                                        <span class="badge badge-success">Verified</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span>Carbon Offset</span>
+                                        <span>0.8T</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-outline w-full mt-4"><i class="fa-brands fa-ethereum"></i> View on Polygonscan</button>
+                            </div>
+                        </div>
+
+                        <!-- Ledger History -->
+                        <div class="card glass-panel col-span-2">
+                            <div class="card-header">
+                                <h2>Immutable Ledger</h2>
+                                <span class="badge">IPFS Stored</span>
+                            </div>
+                            <div class="card-body">
+                                <table class="ledger-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Action Type</th>
+                                            <th>Details</th>
+                                            <th>TxHash</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Today, 08:30</td>
+                                            <td><span class="badge badge-blue">Sensor Log</span></td>
+                                            <td>Average pH 6.2 confirmed</td>
+                                            <td class="mono hash">0x2a1...</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Oct 12, 2024</td>
+                                            <td><span class="badge badge-yellow">Fertilizer</span></td>
+                                            <td>Vermicompost 50kg applied</td>
+                                            <td class="mono hash">0x9b4...</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sep 05, 2024</td>
+                                            <td><span class="badge badge-purple">AI Inference</span></td>
+                                            <td>Disease screening: No issues</td>
+                                            <td class="mono hash">0x4f2...</td>
+                                        </tr>
+                                        <tr>
+                                            <td>May 15, 2024</td>
+                                            <td><span class="badge badge-green">Planting</span></td>
+                                            <td>Panniyur-1 Pepper Variety</td>
+                                            <td class="mono hash">0x1e8...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- View: Kerala Hub -->
+                <section id="kerala-innovations" class="view-section hidden">
+                    <div class="kerala-grid">
+                        
+                        <!-- Schemes Navigator -->
+                        <div class="card glass-panel col-span-2">
+                            <div class="card-header">
+                                <h2>Govt Scheme Navigator</h2>
+                                <p>RAG Agent trained on 47+ Kerala/India agricultural schemes.</p>
+                            </div>
+                            <div class="card-body scheme-finder">
+                                <div class="farmer-profile-summary bg-white/5 p-4 rounded-lg mb-4 flex justify-between items-center border border-white/10">
+                                    <div>
+                                        <h4 class="font-semibold text-white">Current Profile Highlights</h4>
+                                        <p class="text-sm text-gray-400">3 Acres • Organic Pepper • Wayanad</p>
+                                    </div>
+                                    <button class="btn btn-sm btn-primary glow">Find Matches <i class="fa-solid fa-wand-magic-sparkles"></i></button>
+                                </div>
+
+                                <div class="schemes-list">
+                                    <div class="scheme-card fade-in">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <h3>Organic Certification Subsidy</h3>
+                                            <span class="badge badge-success">High Match</span>
+                                        </div>
+                                        <p class="text-sm text-gray-400 mb-3">Claim up to ₹50,000 for acquiring organic certification for pepper cultivation.</p>
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-xs px-2 py-1 bg-white/10 rounded">Requires: Aadhar, Land Records</span>
+                                            <button class="btn btn-xs btn-outline ml-auto">Auto-Fill App</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="scheme-card fade-in" style="animation-delay: 0.1s">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <h3>Drip Irrigation Subsidy</h3>
+                                            <span class="badge badge-blue">Medium Match</span>
+                                        </div>
+                                        <p class="text-sm text-gray-400 mb-3">50% subsidy on installation of micro-irrigation systems.</p>
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-xs px-2 py-1 bg-white/10 rounded">Requires: Quotation, Bank Passbook</span>
+                                            <button class="btn btn-xs btn-outline ml-auto">Auto-Fill App</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Monsoon AI -->
+                        <div class="card glass-panel col-span-1 weather-card">
+                            <div class="card-header">
+                                <h2>Monsoon AI</h2>
+                            </div>
+                            <div class="card-body flex flex-col items-center text-center">
+                                <i class="fa-solid fa-cloud-showers-heavy text-5xl text-blue-400 mb-4 drop-shadow-[0_0_15px_rgba(96,165,250,0.5)]"></i>
+                                <h3 class="text-2xl font-bold font-heading mb-1 text-white">Heavy Rain Alert</h3>
+                                <p class="text-blue-200 mb-4">Wayanad Hyper-local (1km res)</p>
+                                
+                                <div class="bg-red-500/20 border border-red-500/30 p-3 rounded-lg w-full text-left mt-2">
+                                    <h4 class="text-red-300 font-semibold mb-1"><i class="fa-solid fa-triangle-exclamation"></i> Action Required</h4>
+                                    <p class="text-sm text-gray-300">Delay planned pesticide spray for ginger plot B2. Rain expected in 6 hours.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
