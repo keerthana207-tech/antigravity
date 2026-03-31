@@ -10,26 +10,30 @@
 **An intelligent agricultural platform that transforms raw sensor data into actionable farming decisions through multi-agent AI orchestration.**
 
 ---
+
 ## 📑 Table of Contents
 
 - [Problem Statement](#problem-statement)
 - [Features](#features)
-- [Google AI Integration](#google-ai-integration)
 - [Screenshots](#screenshots)
+- [Google AI Integration](#google-ai-integration)
 - [Technology Stack](#technology-stack)
 - [Installation](#installation)
-- [Usage](#usage)
 - [Demo Video](#demo-video)
-- [Contributing](#contributing)
 - [License](#license)
 
 ---
+
 ## Problem Statement
+
 Modern farming lacks a unified, intelligent platform to coordinate data across various domains (weather, soil health, market prices, crop phenology). Farmers often have to manually parse disjointed sources of information, leading to suboptimal decisions, delayed interventions, and yield loss. There is an urgent need for an accessible, integrated operating system that not only consolidates this data but actively synthesizes it into actionable, hyper-local insights for farm management.
 
-## Project Description
+---
 
 ## ✨ Key Features
+
+### 🔐 Secure Login
+Farmer-specific authentication to access your personalized farm digital twin.
 
 ### 🌍 Digital Twin & Analytics
 Visual, 3D-like representation of farm sections with real-time sensor analytics (soil moisture, pH, health index) and predictive AI-driven phenology tracking.
@@ -61,7 +65,33 @@ Immutable ledger features utilizing Web3 technology for logging farm activities,
 - **Organic Certification Support**: Transparent history for certification processes
 
 ---
-## Google AI Usage
+
+## 📸 Screenshots
+
+### 🔐 Login Page
+![CropOS Login](./assets/screenshot_login.png)
+*Secure farmer authentication portal*
+
+---
+
+### 🌍 Digital Twin Dashboard
+![Digital Twin Dashboard](./assets/screenshot_dashboard.png)
+*Real-time farm activity map with sensor analytics — Soil Moisture: 65%, pH: 6.2, Health Index: 0.87*
+
+---
+
+### 🤖 Agent Orchestra — Multi-Agent Query
+![Agent Orchestra Query](./assets/screenshot_agent_query.png)
+*Agents WeatherWise (94%) and MarketMind (81%) responding to "Should I harvest my ginger next week?"*
+
+---
+
+### ✅ Agent Orchestra — Consensus Decision
+![Agent Orchestra Consensus](./assets/screenshot_agent_consensus.png)
+*Final Decision: WAIT 10 DAYS — consensus reached across WeatherWise, MarketMind, and SoilSense agents*
+
+---
+
 ## 🤖 Google AI Integration
 
 ### Models & Tools Used
@@ -74,12 +104,10 @@ Immutable ledger features utilizing Web3 technology for logging farm activities,
 
 ### How Google AI Powers CropOS
 
-#### 1️⃣ **Multi-Agent Orchestration** 🧠
+#### 1️⃣ Multi-Agent Orchestration 🧠
 
 **Model:** Gemini 1.5 Pro  
 **Purpose:** Powers specialized AI agents that work together to make farming decisions
-
-**Implementation:**
 ```python
 # Example: Agent Orchestra Decision Making
 farmer_question = "Should I harvest my ginger next week?"
@@ -95,14 +123,15 @@ decision = "WAIT 10 DAYS"
 
 **Real-world Impact:** Prevents harvest during unsuitable conditions, optimizing both crop quality and market returns.
 
+> 📸 *See screenshots above — Agent Orchestra showing live WeatherWise, MarketMind & SoilSense responses with final consensus.*
+
 ---
 
-#### 2️⃣ **RAG-Powered Scheme Navigator** 📋
+#### 2️⃣ RAG-Powered Scheme Navigator 📋
 
 **Model:** Gemini 1.5 Pro + Google Embeddings  
 **Purpose:** Intelligent matching of government schemes to farmer profiles
 
-**Implementation:**
 - Vector database of 47+ agricultural schemes (Kerala & Indian govt)
 - Semantic search using Google Embeddings for accurate matching
 - Gemini generates natural language explanations of eligibility
@@ -111,7 +140,7 @@ decision = "WAIT 10 DAYS"
 
 ---
 
-#### 3️⃣ **Predictive Analytics & Context-Aware Alerts** 🌧️
+#### 3️⃣ Predictive Analytics & Context-Aware Alerts 🌧️
 
 **Model:** Gemini 1.5 Pro  
 **Purpose:** Generate actionable, human-readable farming recommendations
@@ -125,41 +154,19 @@ decision = "WAIT 10 DAYS"
 
 ---
 
-### Proof of Google AI Usage
+## 🛠️ Technology Stack
 
-📁 **API Integration Screenshots:** `/proof` directory  
-📊 **Live Agent Responses:** See screenshots section below  
-🔑 **API Key Configuration:** `backend/.env` file
-
----
-
-## Proof of Google AI Usage
-Attach screenshots in a `/proof` folder:
-
-![AI Proof](./proof/screenshot1.png)
-
-*(Note: Add your Google AI Studio or API Dashboard screenshots in the `/proof` directory)*
+| Layer | Technology |
+|-------|-----------|
+| Backend | Python 3.8+, Flask |
+| AI/ML | Google Gemini 1.5 Pro, Google Embeddings |
+| Frontend | HTML/CSS/JS |
+| Web3 | Blockchain activity ledger |
+| Database | Vector DB for RAG |
 
 ---
 
-## Screenshots 
-Add project screenshots:
-
-![Dashboard Overview](./assets/screenshot1.png)  
-![Agent Orchestra](./assets/screenshot2.png)
-
-*(Note: Add your actual dashboard screenshots in the `/assets` directory)*
-
----
-
-## Demo Video
-Upload your demo video to Google Drive and paste the shareable link here(max 3 minutes).
-[Watch Demo](#)
-
----
-
-## Installation Steps
-
+## 🚀 Installation Steps
 ```bash
 # Clone the repository
 git clone <your-repo-link>
@@ -176,3 +183,15 @@ Start_CropOS.bat
 # Alternatively, run manually:
 py backend/server.py
 ```
+
+---
+
+## 🎬 Demo Video
+
+[▶ Watch Demo](#) *(Upload to Google Drive and paste link here — max 3 minutes)*
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
