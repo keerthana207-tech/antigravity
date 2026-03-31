@@ -10,6 +10,20 @@
 **An intelligent agricultural platform that transforms raw sensor data into actionable farming decisions through multi-agent AI orchestration.**
 
 ---
+## 📑 Table of Contents
+
+- [Problem Statement](#problem-statement)
+- [Features](#features)
+- [Google AI Integration](#google-ai-integration)
+- [Screenshots](#screenshots)
+- [Technology Stack](#technology-stack)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Demo Video](#demo-video)
+- [Contributing](#contributing)
+- [License](#license)
+
+---
 ## Problem Statement
 Modern farming lacks a unified, intelligent platform to coordinate data across various domains (weather, soil health, market prices, crop phenology). Farmers often have to manually parse disjointed sources of information, leading to suboptimal decisions, delayed interventions, and yield loss. There is an urgent need for an accessible, integrated operating system that not only consolidates this data but actively synthesizes it into actionable, hyper-local insights for farm management.
 
